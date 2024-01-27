@@ -20,11 +20,18 @@ jobs:
                 username : ${{ secrets.DOCKERHUB_USERNAME }}
                 password:  ${{ secrets.DOCKERHUB_TOKEN }}
 
-            - name: Extract Metadata
-              id:   meta
-              uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7 
-              with: 
-                images: mveyone/mern-client
+            # - name: Extract Metadata   # doesnt woork as i want 
+            #   id:   meta
+            #   uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7 
+            #   with: 
+            #     images: mveyone/mern-client
+
+            
+
+            - name: Managing tags
+              
+              run: ./script.sh
+                # working-directory: ./scripts
 
             - name: Build and Push Docker image
               uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -32,5 +39,6 @@ jobs:
                 context: ./client
                 file: ./client/Dockerfile
                 push: true
-                tags: ${{ steps.meta.outputs.tags }}
-                labels: ${{ steps.meta.outputs.labels }}
+                tags: ${{ steps.tags.outputs.newtag }}
+                # labels: ${{ steps.meta.outputs.labels }}
+             
