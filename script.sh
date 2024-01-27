@@ -3,14 +3,14 @@
 # Variables
 
 namespace="demo"
-image_name="mveyone/client"
+image_name="mveyone/mern-client"
 
 # Set the file name and search string
 deployfile="k8s/deployment.yml"
 composefile="docker-compose.yml"
 
 # Get the tag from Docker Hub
-tag=$(curl -s https://hub.docker.com/v2/repositories/mveyone/client/tags\?page_size\=1000 | jq -r '.results[].name' | awk 'NR==1 {print$1}')
+tag=$(curl -s https://hub.docker.com/v2/repositories/mveyone/mern-client/tags\?page_size\=1000 | jq -r '.results[].name' | awk 'NR==1 {print$1}')
 
 # Extract the numeric part of the tag (assuming it is at the end)
 numeric_part=$(echo "$tag" | sed 's/.*\([0-9]\+\)$/\1/')
