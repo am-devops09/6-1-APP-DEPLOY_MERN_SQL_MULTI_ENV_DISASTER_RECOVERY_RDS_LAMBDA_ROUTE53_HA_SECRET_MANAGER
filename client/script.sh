@@ -6,7 +6,7 @@
 image_name="mveyone/mern-client"
 
 # Set the file name and search string
-deployfile="k8s/deployment.yml"
+deployfile="../k8s/deployment.yml"
 # composefile="docker-compose.yml"
 
 # Get the tag from Docker Hub
