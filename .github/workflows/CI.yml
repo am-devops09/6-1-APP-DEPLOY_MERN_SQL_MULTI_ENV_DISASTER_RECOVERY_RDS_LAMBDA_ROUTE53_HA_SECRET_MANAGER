@@ -40,6 +40,6 @@ jobs:
                 context: ./client
                 file: ./client/Dockerfile
                 push: true
-                tags: ${{ steps.tags.outputs.newtag }}
+                tags: ${{ steps.tags.newtag }}
                 # labels: ${{ steps.meta.outputs.labels }}
              
