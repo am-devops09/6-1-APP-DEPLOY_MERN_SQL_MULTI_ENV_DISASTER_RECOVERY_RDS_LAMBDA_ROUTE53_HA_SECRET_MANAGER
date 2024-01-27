@@ -29,7 +29,7 @@ newtag=$(echo "$tag" | sed "s/$numeric_part$/$next_numeric/")
 
 # build new docker image with new tag
 echo "--------------------Build new Image--------------------"
-docker build -t $image_name:$newtag .
+docker build -t $image_name:$newtag -f clinet/Dockerfile .
 
 # push the latest build to dockerhub
 echo "--------------------Pushing Docker Image--------------------"
