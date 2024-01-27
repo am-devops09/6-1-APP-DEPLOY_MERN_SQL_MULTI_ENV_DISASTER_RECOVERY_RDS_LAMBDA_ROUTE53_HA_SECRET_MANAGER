@@ -6,7 +6,7 @@
 image_name="mveyone/mern-client"
 
 # Set the file name and search string
-deployfile="../k8s/deployment.yml"
+deployfile="k8s/deployment.yml"
 # composefile="docker-compose.yml"
 
 # Get the tag from Docker Hub
@@ -29,7 +29,7 @@ newtag=$(echo "$tag" | sed "s/$numeric_part$/$next_numeric/")
 
 # build new docker image with new tag
 echo "--------------------Build new Image--------------------"
-docker build -t $image_name:$newtag -f Dockerfile .
+docker build -t $image_name:$newtag -f client/Dockerfile .
 
 # push the latest build to dockerhub
 echo "--------------------Pushing Docker Image--------------------"
