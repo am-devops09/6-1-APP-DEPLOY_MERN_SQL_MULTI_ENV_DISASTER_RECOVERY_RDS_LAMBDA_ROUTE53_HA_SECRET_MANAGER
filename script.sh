@@ -21,19 +21,19 @@ next_numeric=$((numeric_part + 1))
 # Replace the numeric part in the tag
 newtag=$(echo "$tag" | sed "s/$numeric_part$/$next_numeric/")
 
-# End Variables
+#End Variables
 
 # # remove preious docker images
 # echo "--------------------Remove Previous build--------------------"
 # docker rmi -f $(docker images -q $image_name)
 
-# # build new docker image with new tag
-# echo "--------------------Build new Image--------------------"
-# docker build -t $image_name:$newtag .
+# build new docker image with new tag
+echo "--------------------Build new Image--------------------"
+docker build -t $image_name:$newtag .
 
-# # push the latest build to dockerhub
-# echo "--------------------Pushing Docker Image--------------------"
-# docker push $image_name:$newtag
+# push the latest build to dockerhub
+echo "--------------------Pushing Docker Image--------------------"
+docker push $image_name:$newtag
 
 # # replace the tag in the kubernetes deployment file
 # echo "--------------------Update Img Tag Deployment--------------------"
