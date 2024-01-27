@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: client
-        image: mveyone/mern-client:7
+        image: mveyone/mern-client:latest
         resources:
           limits:
             memory: "128Mi"
