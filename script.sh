@@ -3,7 +3,7 @@
 # Variables
 
 # namespace="default"
-# image_name="mveyone/mern-client"
+image_name="mveyone/mern-client"
 
 # Set the file name and search string
 # deployfile="k8s/deployment.yml"
